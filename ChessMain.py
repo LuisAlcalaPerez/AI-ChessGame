@@ -104,8 +104,11 @@ def main():
                     player_clicks.append(cell_selected)   # we keep track of the first two clicks
 
                 if len(player_clicks) == 2:      # after the second click
-                    pass
-
+                    move = Move(player_clicks[0], player_clicks[1], gs.board)
+                    print(move.get_chess_notation())
+                    gs.make_move(move)
+                    cell_selected = ()           
+                    player_clicks = []
 
         drawGameState(display, gs)
         clock.tick(MAX_FPS)
